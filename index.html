@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌤️ Weather Dashboard</h1>
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search for a city..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn">Search</button>
+            </div>
+            <div id="suggestions" class="suggestions"></div>
+        </header>
+
+        <div id="errorMessage" class="error-message"></div>
+        <div id="loadingSpinner" class="loading-spinner" style="display:none;">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <main id="weatherContent" style="display:none;">
+            <!-- Current Weather Section -->
+            <section class="current-weather">
+                <div class="weather-header">
+                    <div class="location-info">
+                        <h2 id="cityName"></h2>
+                        <p id="weatherDate"></p>
+                    </div>
+                    <div class="weather-icon-large">
+                        <img id="weatherIcon" src="" alt="Weather Icon">
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="temperature-section">
+                        <div class="temperature">
+                            <span id="temperature"></span>
+                            <button id="tempToggle" class="temp-toggle">°F</button>
+                        </div>
+                        <p id="weatherDescription"></p>
+                    </div>
+
+                    <div class="additional-info">
+                        <div class="info-card">
+                            <span class="info-label">💧 Humidity</span>
+                            <span id="humidity" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-label">💨 Wind Speed</span>
+                            <span id="windSpeed" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-label">🔽 Pressure</span>
+                            <span id="pressure" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-label">👁️ Visibility</span>
+                            <span id="visibility" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-label">☀️ UV Index</span>
+                            <span id="uvIndex" class="info-value"></span>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-label">🌅 Sunrise</span>
+                            <span id="sunrise" class="info-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hourly Forecast Section -->
+            <section class="forecast-section">
+                <h3>⏰ Hourly Forecast</h3>
+                <div id="hourlyForecast" class="forecast-container"></div>
+            </section>
+
+            <!-- 5-Day Forecast Section -->
+            <section class="forecast-section">
+                <h3>📅 5-Day Forecast</h3>
+                <div id="dailyForecast" class="forecast-container"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="weather-api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
